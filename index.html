@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Digital Wardrobe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div>
+        <h1>👗 My Digital Wardrobe</h1>
+        <p>Discover your style. Create your look.</p>
+    </div>
+    <button id="showFavorites">♡ Favorite Outfits</button>
+</header>
+
+<main class="container">
+
+    <section class="tryon-section">
+        <div class="section-heading">
+            <div>
+                <h2>Virtual Try-On</h2>
+                <p>Mix and match clothes to create your look.</p>
+            </div>
+            <span class="live-label">STYLE STUDIO</span>
+        </div>
+
+        <div class="studio">
+            <div class="model-area">
+                <div class="model-label">YOUR OUTFIT PREVIEW</div>
+
+                <div class="person" id="person">
+                    <div class="head">
+                        <div class="hair"></div>
+                        <div class="face">
+                            <span class="eye left-eye"></span>
+                            <span class="eye right-eye"></span>
+                            <span class="smile"></span>
+                        </div>
+                    </div>
+
+                    <div class="neck"></div>
+
+                    <div class="arms">
+                        <div class="arm left-arm"></div>
+                        <div class="arm right-arm"></div>
+                    </div>
+
+                    <div class="torso">
+                        <div class="top-garment" id="topGarment">
+                            <span id="topIcon">👕</span>
+                        </div>
+                    </div>
+
+                    <div class="bottom-garment" id="bottomGarment">
+                        <span id="bottomIcon">👖</span>
+                    </div>
+
+                    <div class="legs">
+                        <div class="leg left-leg"></div>
+                        <div class="leg right-leg"></div>
+                    </div>
+
+                    <div class="shoes">
+                        <span>👟</span>
+                        <span>👟</span>
+                    </div>
+                </div>
+
+                <p class="preview-note">
+                    Outfit preview illustration
+                </p>
+            </div>
+
+            <div class="outfit-details">
+                <span class="eyebrow">CURRENT LOOK</span>
+                <h3 id="outfitName">Casual Everyday</h3>
+                <p id="outfitDescription">
+                    A relaxed look for your day.
+                </p>
+
+                <div class="selected-item">
+                    <span class="item-icon" id="selectedTopIcon">👕</span>
+                    <div>
+                        <small>TOP</small>
+                        <strong id="selectedTop">White T-Shirt</strong>
+                    </div>
+                </div>
+
+                <div class="selected-item">
+                    <span class="item-icon" id="selectedBottomIcon">👖</span>
+                    <div>
+                        <small>BOTTOM</small>
+                        <strong id="selectedBottom">Blue Jeans</strong>
+                    </div>
+                </div>
+
+                <div class="outfit-actions">
+                    <button class="primary-btn" id="saveOutfit">
+                        ♡ Save Outfit
+                    </button>
+                    <button class="secondary-btn" id="randomOutfit">
+                        Shuffle Look ↻
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wardrobe-section">
+        <div class="section-heading">
+            <div>
+                <h2>My Clothes</h2>
+                <p>Select an item to try it on.</p>
+            </div>
+            <button class="primary-btn" id="addClothesBtn">
+                + Add Clothes
+            </button>
+        </div>
+
+        <div class="filters" id="filters">
+            <button class="filter active" data-category="All">All</button>
+            <button class="filter" data-category="Tops">Tops</button>
+            <button class="filter" data-category="Bottoms">Bottoms</button>
+            <button class="filter" data-category="Dresses">Dresses</button>
+            <button class="filter" data-category="Jackets">Jackets</button>
+        </div>
+
+        <div class="clothes-grid" id="clothesGrid"></div>
+        <p class="empty-message" id="emptyClothes" hidden>
+            No clothes in this category yet.
+        </p>
+    </section>
+
+    <section class="saved-section" id="savedSection" hidden>
+        <div class="section-heading">
+            <div>
+                <h2>♡ Saved Outfits</h2>
+                <p>Your favorite combinations.</p>
+            </div>
+        </div>
+        <div class="saved-grid" id="savedGrid"></div>
+    </section>
+
+    <section class="add-panel" id="addPanel" hidden>
+        <h2>Add Clothing Item</h2>
+
+        <form id="clothesForm">
+            <label for="clothesName">Clothing Name</label>
+            <input id="clothesName" required
+                   placeholder="e.g. Black Hoodie">
+
+            <label for="clothesCategory">Category</label>
+            <select id="clothesCategory" required>
+                <option value="Tops">Tops</option>
+                <option value="Bottoms">Bottoms</option>
+                <option value="Dresses">Dresses</option>
+                <option value="Jackets">Jackets</option>
+            </select>
+
+            <label for="clothesColor">Color</label>
+            <input id="clothesColor" type="color" value="#8b5cf6">
+
+            <label for="clothesEmoji">Clothing Icon</label>
+            <select id="clothesEmoji">
+                <option value="👕">T-Shirt</option>
+                <option value="👔">Shirt</option>
+                <option value="🧥">Jacket</option>
+                <option value="👖">Jeans</option>
+                <option value="👗">Dress</option>
+                <option value="🩳">Shorts</option>
+                <option value="👚">Blouse</option>
+            </select>
+
+            <div class="form-actions">
+                <button class="primary-btn" type="submit">
+                    Add to Wardrobe
+                </button>
+                <button class="secondary-btn" type="button"
+                        id="cancelAdd">Cancel</button>
+            </div>
+        </form>
+    </section>
+
+    <p class="status-message" id="statusMessage" role="status"></p>
+
+</main>
+
+<footer>
+    <p>My Digital Wardrobe · Your personal style space ✨</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
